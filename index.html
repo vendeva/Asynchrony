@@ -1,0 +1,41 @@
+Вариант 6<br>
+Посчитать сумму всех нечетных чисел в массиве.<br>
+Посмотрите код страницы и вывод в консоль браузера.
+
+<script src="shri-async-hw.js"></script>
+
+<script>
+    const {
+        AsyncArray,
+        add,
+        mod,
+        equal,
+    } = Homework;
+
+
+    const getPromise = (func, context = this) => {
+        return (...args) => {
+            return new Promise((resolve, reject) => {
+                func.call(context, ...args, (result) => resolve(result));
+            })
+        }
+    }
+
+    const arr = new AsyncArray([1, 2, 3, 4, 7, 5, 6, 13]);
+    let summOdd = 0,
+        item, modItem, oddItem, lengthArr;
+    console.log(`Посчитать сумму всех нечетных чисел в массиве`);
+    arr.print();
+
+    async function getSummOfOdd(arr) {
+        item = await getPromise(arr.pop, arr)();
+        modItem = await getPromise(mod)(item, 2);
+        oddItem = await getPromise(equal)(0, modItem);
+        lengthArr = await getPromise(arr.length, arr)();
+        if (!oddItem) summOdd = await getPromise(add)(summOdd, item);
+        !await getPromise(equal)(lengthArr, 0) ? getSummOfOdd(arr) :
+            console.log(`Cумма всех нечетных чисел в массиве равна ${summOdd}`);
+    }
+
+    getSummOfOdd(arr);
+</script>
