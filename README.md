@@ -1,9 +1,19 @@
 # Домашнее задание ШРИ по теме "Асинхронность"
 
+## Выполнен вариант 6
+
+В файле index.html
+
+## Бонусное задание
+
+В файле additional.html
+
+## ТЗ
+
 Вам дан асинхронный API, реализующий арифметические действия, операции сравнения и операции над элементами массива. Каждый метод API последним аргументом принимает callback, который будет вызван после окончания асинхронного действия. В файле [example.html](example.html) можно посмотреть примеры использования.
 
-- [код асинхронного API](https://github.com/dima117/shri-async-hw/blob/master/shri-async-hw.js)
-- [код примера использования](https://github.com/dima117/shri-async-hw/blob/master/example.html)
+-   [код асинхронного API](https://github.com/dima117/shri-async-hw/blob/master/shri-async-hw.js)
+-   [код примера использования](https://github.com/dima117/shri-async-hw/blob/master/example.html)
 
 ## Задания
 
@@ -88,9 +98,8 @@ function(array: AsyncArray, cb: (result: Number) => void) {
 function map(
     array: AsyncArray,
     fn: (cur: any, idx: Number, src: AsyncArray) => any,
-    cb: (result: AsyncArray) => void) {
-
-}
+    cb: (result: AsyncArray) => void
+) {}
 ```
 
 ### Вариант 9
@@ -102,9 +111,8 @@ function reduce(
     array: AsyncArray,
     fn: (acc: any, cur: any, idx: Number, src: AsyncArray) => any,
     initialValue: any,
-    cb: (result: any) => void) {
-
-}
+    cb: (result: any) => void
+) {}
 ```
 
 ### Вариант 10
@@ -115,18 +123,17 @@ function reduce(
 function filter(
     array: AsyncArray,
     fn: (cur: any, idx: Number, src: AsyncArray) => Boolean,
-    cb: (result: AsyncArray) => void) {
-
-}
+    cb: (result: AsyncArray) => void
+) {}
 ```
 
 ## Бонусное задание
 
 Реализовать в отдельном файле собственную версию методов:
 
-- [Promise.any](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)
-- [Promise.allSettled](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
-- [Promise.prototype.finally](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally)
+-   [Promise.any](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)
+-   [Promise.allSettled](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
+-   [Promise.prototype.finally](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally)
 
 ```js
 Promise._any = // реализация
