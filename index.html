@@ -13,10 +13,10 @@
     } = Homework;
 
 
-    const getPromise = (func, context = this) => {
+    const getPromise = (func) => {
         return (...args) => {
             return new Promise((resolve, reject) => {
-                func.call(context, ...args, (result) => resolve(result));
+                func(...args, resolve);
             })
         }
     }
@@ -28,10 +28,10 @@
     arr.print();
 
     async function getSummOfOdd(arr) {
-        item = await getPromise(arr.pop, arr)();
+        item = await getPromise(arr.pop)();
         modItem = await getPromise(mod)(item, 2);
         oddItem = await getPromise(equal)(0, modItem);
-        lengthArr = await getPromise(arr.length, arr)();
+        lengthArr = await getPromise(arr.length)();
         if (!oddItem) summOdd = await getPromise(add)(summOdd, item);
         !await getPromise(equal)(lengthArr, 0) ? getSummOfOdd(arr) :
             console.log(`Cумма всех нечетных чисел в массиве равна ${summOdd}`);
